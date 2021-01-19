@@ -6,8 +6,6 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import java.util.List;
-
 public class KitsCommand implements CommandExecutor {
     private final Kits kits;
 
@@ -22,13 +20,9 @@ public class KitsCommand implements CommandExecutor {
                 Player player = (Player) sender;
                 if (args.length == 0) {
                     player.sendMessage(ChatColor.YELLOW + "List of available kits:");
-                    for (String kitnames : kits.getConfig().getConfigurationSection("kits").getKeys(false)) {
-                        String[] eachname = kitnames.split("\\\\r?\\\\n");
-                        for (String e : eachname) {
-                            player.sendMessage(ChatColor.WHITE+ "[" + ChatColor.GREEN + e + ChatColor.WHITE + "]");
-                        }
+                    for (String name : kits.getConfig().getConfigurationSection("kits").getKeys(false)) {
+                        player.sendMessage(ChatColor.WHITE+ "[" + ChatColor.GREEN + name + ChatColor.WHITE + "]");
                     }
-
                 } else {
                     player.sendMessage("Incorrect Syntax. /kits");
                 }
