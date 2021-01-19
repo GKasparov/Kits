@@ -1,0 +1,9 @@
+name: Kits
+version: ${project.version}
+main: me.mazenz.kits.Kits
+api-version: 1.16
+commands:
+  kit:
+    description: gives kits
+  kits:
+    description: describes available kits
